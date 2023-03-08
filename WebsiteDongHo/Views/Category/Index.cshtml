@@ -1,0 +1,29 @@
+﻿@model List<WebsiteDongHo.Context.Category_2119110295>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content padding-y">
+    <div class="container">
+        <nav class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3">
+
+                    <div class="card card-category">
+                        <div class="img-wrap" style="height:350px">
+                            <img src="~/Content/images/category/@item.Avatar" style="width:350px">
+                        </div>
+                        <div class="card-body">
+                            <h2 class="card-title"><a href="/Category/ProductCategory/@item.Id">@item.Name</a></h2>
+                        </div>
+                    </div>
+                </div> <!-- col.// -->
+            }
+        </nav> <!-- row.// -->
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->

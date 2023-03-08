@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="B_ShopModelStoreContainer" CdmEntityContainer="B_ShopEntities">
+    <EntitySetMapping Name="Brand_2119110295">
+      <EntityTypeMapping TypeName="B_ShopModel.Brand_2119110295">
+        <MappingFragment StoreEntitySet="Brand_2119110295">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Slug" ColumnName="Slug" />
+          <ScalarProperty Name="ShowOnHomePage" ColumnName="ShowOnHomePage" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="CreatedOnUtc" ColumnName="CreatedOnUtc" />
+          <ScalarProperty Name="UpdatedOnUtc" ColumnName="UpdatedOnUtc" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Category_2119110295">
+      <EntityTypeMapping TypeName="B_ShopModel.Category_2119110295">
+        <MappingFragment StoreEntitySet="Category_2119110295">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="Slug" ColumnName="Slug" />
+          <ScalarProperty Name="ShowOnHomePage" ColumnName="ShowOnHomePage" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="CreatedOnUtc" ColumnName="CreatedOnUtc" />
+          <ScalarProperty Name="UpdateOnUtc" ColumnName="UpdateOnUtc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order_2119110295">
+      <EntityTypeMapping TypeName="B_ShopModel.Order_2119110295">
+        <MappingFragment StoreEntitySet="Order_2119110295">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CreatedOnUtc" ColumnName="CreatedOnUtc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_2119110295">
+      <EntityTypeMapping TypeName="B_ShopModel.Product_2119110295">
+        <MappingFragment StoreEntitySet="Product_2119110295">
+          <ScalarProperty Name="Avatar4" ColumnName="Avatar4" />
+          <ScalarProperty Name="Avatar3" ColumnName="Avatar3" />
+          <ScalarProperty Name="Avatar2" ColumnName="Avatar2" />
+          <ScalarProperty Name="Avatar1" ColumnName="Avatar1" />
+          <ScalarProperty Name="Especially" ColumnName="Especially" />
+          <ScalarProperty Name="WaterProof" ColumnName="WaterProof" />
+          <ScalarProperty Name="Strap" ColumnName="Strap" />
+          <ScalarProperty Name="Glasses" ColumnName="Glasses" />
+          <ScalarProperty Name="Dial_Diameter" ColumnName="Dial_Diameter" />
+          <ScalarProperty Name="DialThickness" ColumnName="DialThickness" />
+          <ScalarProperty Name="Machine" ColumnName="Machine" />
+          <ScalarProperty Name="Origin" ColumnName="Origin" />
+          <ScalarProperty Name="ProductNumber" ColumnName="ProductNumber" />
+          <ScalarProperty Name="Trademark" ColumnName="Trademark" />
+          <ScalarProperty Name="Availabilty" ColumnName="Availabilty" />
+          <ScalarProperty Name="DeliveryTime" ColumnName="DeliveryTime" />
+          <ScalarProperty Name="Guarantee" ColumnName="Guarantee" />
+          <ScalarProperty Name="ArticleNumber" ColumnName="ArticleNumber" />
+          <ScalarProperty Name="Manufacturer" ColumnName="Manufacturer" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="ShortDescription" ColumnName="ShortDescription" />
+          <ScalarProperty Name="FullDescription" ColumnName="FullDescription" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="PriceDiscount" ColumnName="PriceDiscount" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="Slug" ColumnName="Slug" />
+          <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+          <ScalarProperty Name="Deleted" ColumnName="Deleted" />
+          <ScalarProperty Name="ShowOnHomePage" ColumnName="ShowOnHomePage" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="CreatedOnUtc" ColumnName="CreatedOnUtc" />
+          <ScalarProperty Name="UpdatedOnUtc" ColumnName="UpdatedOnUtc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users_2119110295">
+      <EntityTypeMapping TypeName="B_ShopModel.Users_2119110295">
+        <MappingFragment StoreEntitySet="Users_2119110295">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsAdmin" ColumnName="IsAdmin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetail_2119110295">
+      <EntityTypeMapping TypeName="B_ShopModel.OrderDetail_2119110295">
+        <MappingFragment StoreEntitySet="OrderDetail_2119110295">
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

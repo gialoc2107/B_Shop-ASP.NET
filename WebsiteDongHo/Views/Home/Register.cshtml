@@ -1,0 +1,69 @@
+﻿@model WebsiteDongHo.Context.Users_2119110295
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="card mx-auto" style="max-width:520px; margin-top:40px;">
+            <article class="card-body">
+                <header class="mb-4"><h4 class="card-title" style="padding-left:10px">Đăng ký</h4></header>
+                <form>
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group" style="width:580px">
+                        @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="width:580px">
+                        @Html.LabelFor(model => model.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="width:580px">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="width:580px">
+                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="width:580px">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Đăng ký" class="btn btn-primary btn-block" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col form-group">
+                            <label class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" checked="">
+                                <div class="custom-control-label"> Tôi đồng ý với <a href="#">các điều khoản và điều kiện</a>  </div>
+                            </label>
+                        </div> <!-- form-group end.// -->
+                    </div> <!-- form-group end.// -->
+                </form>
+            </article><!-- card-body.// -->
+        </div> <!-- card .// -->
+    </div>
+}
+<p class="text-center mt-4">Đã có tài khoản ? <a href="~/Home/Login">Đăng nhập</a></p>

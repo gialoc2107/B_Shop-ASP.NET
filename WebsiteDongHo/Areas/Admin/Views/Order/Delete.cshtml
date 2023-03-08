@@ -1,0 +1,59 @@
+﻿@model WebsiteDongHo.Context.Order_2119110295
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper" style="padding-left: 20px">
+    <h2>Xóa đơn hàng</h2>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UserId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UserId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedOnUtc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreatedOnUtc)
+            </dd>
+        </dl>
+
+        <h3>Bạn có chắc chắn muốn xóa đơn hàng này không ?</h3>
+
+        @using (Html.BeginForm("Delete", "Order", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Xóa" class="btn btn-default" /> |
+                @Html.ActionLink("Trở lại", "Index")
+            </div>
+        }
+    </div>
+</div>

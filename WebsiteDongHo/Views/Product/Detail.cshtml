@@ -1,0 +1,212 @@
+﻿@model WebsiteDongHo.Context.Product_2119110295
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $("#addtocart").click(function () {
+            var model = {};
+            //lấy id sản phẩm
+            model.Id = @Model.Id;
+            // lấy số lượng đặt hàng
+            model.Quantity = $("#ipQuantity").val();
+            debugger;
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("AddToCart", "Cart")',
+                data:  JSON.stringify(model) ,
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function () {
+                    alert("Thêm giỏ hàng thành công!")
+                    $('#CartCount').text(@Session["count"] + 1);
+                },
+                error: function () {
+                    alert("Lỗi trong khi thêm vào giỏ hàng!");
+                }
+            });
+            return false;
+        });
+    });
+</script>
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-content bg-white padding-y">
+    <div class="container">
+
+        <!-- ============================ ITEM DETAIL ======================== -->
+        <div class="row">
+            <aside class="col-md-6">
+                <div class="card">
+                    <article class="gallery-wrap">
+                        <div class="img-big-wrap">
+                            <div> <a href="#"><img src="~/Content/images/items/@Model.Avatar"></a></div>
+                        </div> <!-- slider-product.// -->
+                        <div class="thumbs-wrap">
+                            <a href="#" class="item-thumb"> <img src="~/Content/images/items/img/@Model.Avatar1"></a>
+                            <a href="#" class="item-thumb"> <img src="~/Content/images/items/img/@Model.Avatar2"></a>
+                            <a href="#" class="item-thumb"> <img src="~/Content/images/items/img/@Model.Avatar3"></a>
+                            <a href="#" class="item-thumb"> <img src="~/Content/images/items/img/@Model.Avatar4"></a>
+                        </div> <!-- slider-nav.// -->
+                    </article> <!-- gallery-wrap .end// -->
+                </div> <!-- card.// -->
+            </aside>
+            <main class="col-md-6">
+                <article class="product-info-aside">
+
+                    <h2 class="title mt-3">@Model.Name </h2>
+
+                    <div class="rating-wrap my-3">
+                        <ul class="rating-stars">
+                            <li style="width:80%" class="stars-active">
+                                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </li>
+                            <li>
+                                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </li>
+                        </ul>
+                        <small class="label-rating text-muted">132 Nhận xét</small>
+                        <small class="label-rating text-success"> <i class="fa fa-clipboard-check"></i> 154 đơn đặt hàng </small>
+                    </div> <!-- rating-wrap.// -->
+
+                    <div class="mb-3">
+                        <var class="price h4">@Convert.ToDecimal(@Model.Price).ToString("#,##0")₫</var>
+                        <span class="text-muted">@Convert.ToDecimal(@Model.PriceDiscount).ToString("#,##0")₫</span>
+                    </div> <!-- price-detail-wrap .// -->
+
+                    <p>
+                        @Model.ShortDescription
+                    </p>
+
+
+                    <dl class="row">
+                        <dt class="col-sm-3">Nhà sản xuất</dt>
+                        <dd class="col-sm-9"><a href="#">@Model.Manufacturer</a></dd>
+
+                        <dt class="col-sm-3">Số bài viết</dt>
+                        <dd class="col-sm-9">@Model.ArticleNumber</dd>
+
+                        <dt class="col-sm-3">Bảo hành</dt>
+                        <dd class="col-sm-9">@Model.Guarantee</dd>
+
+                        <dt class="col-sm-3">Thời gian giao hàng</dt>
+                        <dd class="col-sm-9">@Model.DeliveryTime</dd>
+
+                        <dt class="col-sm-3">Tình trạng</dt>
+                        <dd class="col-sm-9">@Model.Availabilty</dd>
+                    </dl>
+
+                    <div class="form-row  mt-4">
+                        <div class="form-group col-md flex-grow-0">
+                            <div class="input-group mb-3 input-spinner">
+                                <input type="number" id="ipQuantity" class="form-control" value="1" min="1" style="width: 60px; max-width: 70px">
+                            </div>
+                        </div> <!-- col.// -->
+                        <div class="form-group col-md">
+                            <a href="#" id="addtocart" class="btn  btn-primary">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="text" h>Thêm vào giỏ hàng</span>
+                            </a>
+                        </div> <!-- col.// -->
+                    </div> <!-- row.// -->
+
+                </article> <!-- product-info-aside .// -->
+            </main> <!-- col.// -->
+        </div> <!-- row.// -->
+        <!-- ================ ITEM DETAIL END .// ================= -->
+
+
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+<!-- ========================= SECTION  ========================= -->
+<section class="section-name padding-y bg">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-8">
+                <h5 class="title-description">Mô tả</h5>
+                <p>
+                    @Model.FullDescription
+                </p>
+
+                <h5 class="title-description">Thông số kỹ thuật</h5>
+                <table class="table table-bordered">
+                    <tr> <th colspan="2">Thông tin cơ bản</th> </tr>
+                    <tr> <td>Thương hiệu</td><td>@Model.Trademark</td> </tr>
+                    <tr> <td>Số hiệu sản phẩm</td><td>@Model.ProductNumber</td> </tr>
+                    <tr> <td>Xuất xứ</td><td>@Model.Origin</td> </tr>
+                    <tr> <td>Máy</td><td>@Model.Machine</td> </tr>
+
+                    <tr> <th colspan="2">Kích thước</th> </tr>
+                    <tr> <td>Bề dày mặt số</td><td>@Model.DialThickness</td> </tr>
+                    <tr> <td>Đường kính mặt số</td><td>@Model.Dial_Diameter</td> </tr>
+
+                    <tr> <th colspan="2">Chất liệu</th> </tr>
+                    <tr> <td>Kính</td><td>@Model.Glasses</td> </tr>
+                    <tr> <td>Dây đeo</td><td>@Model.Strap</td> </tr>
+
+                    <tr> <th colspan="2">Tính năng</th> </tr>
+                    <tr> <td>Chống nước</td><td>@Model.WaterProof ATM</td> </tr>
+                    <tr> <td>Đặc biệt</td><td>@Model.Especially</td> </tr>
+
+                </table>
+            </div> <!-- col.// -->
+
+            <aside class="col-md-4">
+
+                <div class="box">
+
+                    <h5 class="title-description">Thông tin </h5>
+                    <p>
+                        Người ta vẫn thường nói “thời gian là vĩnh cữu”, mọi thứ trên
+                        thế giới này có thể bị lụi tàn hoặc thụt lùi, nhưng thời gian
+                        sẽ không bao giờ phai mờ. Chính vì thế, hãy trân trọng thời
+                        gian của mình đang có với một chiếc đồng hồ chính hãng (vật
+                        dùng để kiểm soát thời gian).
+                    </p>
+
+                    <h5 class="title-description">Tin tức</h5>
+
+
+                    <article class="media mb-3">
+                        <a href="#"><img class="img-sm mr-3" src="~/Content/images/items/CASIO MTP-VD02B-3EUDF.png"></a>
+                        <div class="media-body">
+                            <h6 class="mt-0"><a href="#">CASIO MTP-VD02B-3EUDF</a></h6>
+                            <p class="mb-2"> Mẫu Casio MTP-VD02B-3EUDF phiên bản dây vỏ đồng hồ được phối cùng tone màu đen nam tính, cọc vạch số tạo hình dày dặn phủ dạ quang nổi bật trên nền mặt số kích thước 41mm. </p>
+                        </div>
+                    </article>
+
+                    <article class="media mb-3">
+                        <a href="#"><img class="img-sm mr-3" src="~/Content/images/items/TISSOT T129.210.11.053.00.png"></a>
+                        <div class="media-body">
+                            <h6 class="mt-0"><a href="#">TISSOT T129.210.11.053.00</a></h6>
+                            <p class="mb-2"> Mẫu Tissot T129.210.11.053.00 phiên bản nền cọc số la mã tạo nét thanh mảnh thời trang trên nền mặt số với kích thước 28mm phù hợp cho phái đẹp cổ tay nhỏ. </p>
+                        </div>
+                    </article>
+
+                    <article class="media mb-3">
+                        <a href="#"><img class="img-sm mr-3" src="~/Content/images/items/Seiko SUR303P1.png"></a>
+                        <div class="media-body">
+                            <h6 class="mt-0"><a href="#">Seiko SUR303P1</a></h6>
+                            <p class="mb-2"> Mẫu Seiko đôi phiên bản mặt kính Sapphire nổi bật với nền cọc số trò tạo hình cách điệu trẻ trung trên nền mặt số trắng. </p>
+                        </div>
+                    </article>
+
+
+
+                </div> <!-- box.// -->
+            </aside> <!-- col.// -->
+        </div> <!-- row.// -->
+
+    </div> <!-- container .//  -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->

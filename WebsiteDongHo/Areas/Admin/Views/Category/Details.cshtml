@@ -1,0 +1,60 @@
+﻿@model WebsiteDongHo.Context.Category_2119110295
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content-wrapper" style="padding-left: 20px; padding-top: 10px">
+    <h2>Chi tiết danh mục</h2>
+
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Avatar)
+            </dt>
+
+            <dd>
+                <img style="width: 150px; height: 150px" src="~/Content/images/category/@Html.DisplayFor(model => model.Avatar)" />
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Slug)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Slug)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CreatedOnUtc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CreatedOnUtc)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.UpdateOnUtc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.UpdateOnUtc)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Sửa", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Trở lại", "Index")
+    </p>
+</div>
